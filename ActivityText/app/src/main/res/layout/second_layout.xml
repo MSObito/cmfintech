@@ -8,4 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button 2"/>
+    <TextView
+        android:id="@+id/textview_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/button_singletop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SingleTop"/>
 </LinearLayout>

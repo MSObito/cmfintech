@@ -8,4 +8,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button 1"/>
+    <Button
+        android:id="@+id/button_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button Data"/>
+    <Button
+        android:id="@+id/button_data_return"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button Data Return"/>
+    <TextView
+        android:id="@+id/textview_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/start_normal_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start NormalActivity"/>
+    <Button
+        android:id="@+id/start_dialog_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start DialogActivity"/>
+    <Button
+        android:id="@+id/button_standard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Standard Mode"/>
+    <Button
+        android:id="@+id/button_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment"
+        android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/button_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NewsDemo"
+        android:textAllCaps="false"/>
 </LinearLayout>
