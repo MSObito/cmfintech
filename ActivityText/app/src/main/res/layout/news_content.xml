@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <fragment
         android:id="@+id/news_content_fragment"
-        android:name="com.example.obito.activitytext.NewsContentFragment"
+        android:name="com.example.obito.activitytext.fragment.NewsContentFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

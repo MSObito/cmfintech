@@ -4,13 +4,13 @@
     android:layout_height="match_parent">
     <fragment
         android:id="@+id/left_fragment"
-        android:name="com.example.obito.activitytext.LeftFragment"
+        android:name="com.example.obito.activitytext.fragment.LeftFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
     <fragment
         android:id="@+id/right_fragment"
-        android:name="com.example.obito.activitytext.RightFragment"
+        android:name="com.example.obito.activitytext.fragment.RightFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

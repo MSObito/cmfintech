@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FirstActivity"
+            android:name=".activity.FirstActivity"
             android:label="This is FirstActivity"
             android:launchMode="standard">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SecondActivity"
+            android:name=".activity.SecondActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="com.example.activitytest.ACTION_START" />
@@ -29,7 +29,7 @@
                 <category android:name="com.example.activitytest.MY_CATEGORY" />
             </intent-filter>
         </activity>
-        <activity android:name=".ThirdActivity">
+        <activity android:name=".activity.ThirdActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -39,12 +39,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DialogActivity"
+            android:name=".activity.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".NormalActivity" />
-        <activity android:name=".FragmentActivity" />
-        <activity android:name=".NewsContentActivity" />
-        <activity android:name=".NewsDemoActivity"></activity>
+        <activity android:name=".activity.NormalActivity" />
+        <activity android:name=".activity.FragmentActivity" />
+        <activity android:name=".activity.NewsContentActivity" />
+        <activity android:name=".activity.NewsDemoActivity"></activity>
     </application>
 
 </manifest>
