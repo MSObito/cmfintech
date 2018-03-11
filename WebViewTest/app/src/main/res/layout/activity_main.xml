@@ -9,6 +9,18 @@
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="Second Activity"/>
+    <Button
+        android:id="@+id/json_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Json"/>
+    <Button
+        android:id="@+id/handler_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Handler"/>
     <WebView
         android:id="@+id/web_view"
         android:layout_width="match_parent"

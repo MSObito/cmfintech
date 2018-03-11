@@ -1,4 +1,4 @@
-package com.example.obito.webviewtest;
+package com.example.obito.webviewtest.Activity;
 
 import android.app.DownloadManager;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.obito.webviewtest.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
