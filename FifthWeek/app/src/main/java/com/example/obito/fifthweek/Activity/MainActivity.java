@@ -42,6 +42,22 @@ public class MainActivity extends AppCompatActivity {
         final Button unbindService=(Button)findViewById(R.id.unbind_service);
         Button startIntentService=(Button)findViewById(R.id.start_intent_service);
         Button downloadButton=(Button)findViewById(R.id.download_activity);
+        Button customButton=(Button)findViewById(R.id.custom_activity);
+        Button viewlistButton=(Button)findViewById(R.id.viewlist_activity);
+        viewlistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,ViewListActivity.class);
+                startActivity(intent);
+            }
+        });
+        customButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,CustomActivity.class);
+                startActivity(intent);
+            }
+        });
         startService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

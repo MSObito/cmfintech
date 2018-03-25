@@ -37,5 +37,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="DownloadActivity"/>
+    <Button
+        android:id="@+id/custom_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Custom Controls"/>
+    <Button
+        android:id="@+id/viewlist_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ViewPagerListView"/>
 
 </LinearLayout>
