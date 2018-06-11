@@ -1,21 +1,13 @@
-package com.example.obito.Activity;
+package com.example.obito.activity;
 
-import android.content.Intent;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
 
 import com.example.obito.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.obito.fragment.MeFragment;
+import com.example.obito.fragment.NewsFragment;
+import com.example.obito.fragment.OrderFragment;
+import com.example.obito.views.BottomBar;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -25,7 +17,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        BottomBar bottomBar = findViewById(R.id.bottom_bar);
+        bottomBar.setContainer(R.id.fl_container)
+                .setTitleBeforeAndAfterColor("#999999", "#ff5d5e")
+                .addItem(NewsFragment.class,
+                        "新闻",
+                        R.mipmap.news_grey,
+                        R.mipmap.news_blue)
+                .addItem(OrderFragment.class,
+                        "订阅",
+                        R.mipmap.order_grey,
+                        R.mipmap.order_blue)
+                .addItem(MeFragment.class,
+                        "我",
+                        R.mipmap.me_grey,
+                        R.mipmap.me_blue)
+                .build();
     }
 
     @Override
