@@ -19,7 +19,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         BottomBar bottomBar = findViewById(R.id.bottom_bar);
         bottomBar.setContainer(R.id.fl_container)
-                .setTitleBeforeAndAfterColor("#999999", "#ff5d5e")
+                .setTitleBeforeAndAfterColor("#999999", "#000000")
                 .addItem(NewsFragment.class,
                         "新闻",
                         R.mipmap.news_grey,
