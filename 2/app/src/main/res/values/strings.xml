@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">蓝穹</string>
     <string name="news">新闻</string>
+    <string name="top">置顶</string>
+    <string name="refreshing">正在刷新</string>
+    <string name="pullRefresh">下拉刷新</string>
 </resources>

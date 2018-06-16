@@ -22,6 +22,7 @@ import com.example.obito.R;
 import com.example.obito.adapter.NewsAdapter;
 import com.example.obito.model.News;
 import com.example.obito.utils.JsonUtil;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -81,13 +82,16 @@ public class NewsFragment extends Fragment {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         setHasOptionsMenu(true);
-        RecyclerView recyclerView=(RecyclerView)view.findViewById(R.id.news_recycler_view);
+        XRecyclerView recyclerView=(XRecyclerView) view.findViewById(R.id.news_xRecyclerView);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         String jsonData=JsonUtil.getJson("newsList.json",getContext());
-        newsList=JsonUtil.parseJSONWithGson(jsonData);
-        NewsAdapter adapter=new NewsAdapter(newsList);
+        newsList=JsonUtil.parseJSONWithGson(jsonData,News.class);
+        NewsAdapter adapter=new NewsAdapter(newsList,getContext());
         recyclerView.setAdapter(adapter);
+//        recyclerView.setOnRefreshListener((OnRefreshListener) getContext());
+//        recyclerView.setOnLoadMoreListener((OnLoadMoreListener) getContext());
+
         return view;
     }
 

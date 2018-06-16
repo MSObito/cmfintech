@@ -1,67 +1,63 @@
 package com.example.obito.model;
 
-import java.util.Date;
 import java.util.List;
 
 public class News {
-        private String id;
-        private String titile;
-        private String source;
-        private Date dateTme;
-        private Image image;
-        private boolean top;
-        private List<Comments> comments;
+    private String id;
 
-        public void setId(String id) {
-            this.id = id;
-        }
-        public String getId() {
-            return id;
-        }
+    private String titile;
 
-        public void setTitile(String titile) {
-            this.titile = titile;
-        }
-        public String getTitile() {
-            return titile;
-        }
+    private String source;
 
-        public void setSource(String source) {
-            this.source = source;
-        }
-        public String getSource() {
-            return source;
-        }
+    private String dateTme;
 
-        public void setDateTme(Date dateTme) {
-            this.dateTme = dateTme;
-        }
-        public Date getDateTme() {
-            return dateTme;
-        }
+    private Image image;
 
-        public void setImage(Image image) {
-            this.image = image;
-        }
-        public Image getImage() {
-            return image;
-        }
+    private boolean top;
 
-        public void setTop(boolean top) {
-            this.top = top;
-        }
-        public boolean getTop() {
-            return top;
-        }
+    private List<Comments> comments ;
 
-        public void setComments(List<Comments> comments) {
-            this.comments = comments;
-        }
-        public List<Comments> getComments() {
-            return comments;
-        }
-
-
-
+    public void setId(String id){
+        this.id = id;
+    }
+    public String getId(){
+        return this.id;
+    }
+    public void setTitile(String titile){
+        this.titile = titile;
+    }
+    public String getTitile(){
+        return this.titile;
+    }
+    public void setSource(String source){
+        this.source = source;
+    }
+    public String getSource(){
+        return this.source;
+    }
+    public void setDateTme(String dateTme){
+        this.dateTme = dateTme;
+    }
+    public String getDateTme(){
+        return this.dateTme;
+    }
+    public void setImage(Image image){
+        this.image = image;
+    }
+    public Image getImage(){
+        return this.image;
+    }
+    public void setTop(boolean top){
+        this.top = top;
+    }
+    public boolean getTop(){
+        return this.top;
+    }
+    public void setComments(List<Comments> comments){
+        this.comments = comments;
+    }
+    public List<Comments> getComments(){
+        return this.comments;
+    }
 
 }

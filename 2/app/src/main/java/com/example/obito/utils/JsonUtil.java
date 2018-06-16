@@ -4,11 +4,17 @@ import android.content.Context;
 import android.content.res.AssetManager;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class JsonUtil {
@@ -44,9 +50,14 @@ public class JsonUtil {
      * @param <T>
      * @return
      */
-    public static <T> List<T> parseJSONWithGson(String jsonData){
+    public static <T> List<T> parseJSONWithGson(String jsonData,Class<T> tClass){
+        List<T> list=new ArrayList<T>();
         Gson gson=new Gson();
-        List<T> tList=gson.fromJson(jsonData,new TypeToken<List<T>>(){}.getType());
-        return tList;
+        //return gson.fromJson(jsonData,new TypeToken<ArrayList<T>>(){}.getType());
+        JsonArray arry = new JsonParser().parse(jsonData).getAsJsonArray();
+        for (JsonElement jsonElement : arry) {
+            list.add(gson.fromJson(jsonElement, tClass));
+        }
+        return list;
     }
 }
