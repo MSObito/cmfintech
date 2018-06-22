@@ -12,16 +12,20 @@ import android.view.WindowManager;
 
 import com.example.obito.utils.StatusBarUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.view.View.GONE;
 import static android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 
 public class BaseActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         StatusBarUtil.transparencyBar(this);
         StatusBarUtil.StatusBarLightMode(this);
-
+        ActivityManager.addActivity(this);
     }
 
     /**
@@ -36,5 +40,11 @@ public class BaseActivity extends AppCompatActivity {
             int option = SYSTEM_UI_FLAG_HIDE_NAVIGATION;
             decorView.setSystemUiVisibility(option);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityManager.removeActivity(this);
     }
 }

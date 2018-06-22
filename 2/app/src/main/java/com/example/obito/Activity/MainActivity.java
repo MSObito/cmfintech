@@ -1,5 +1,6 @@
 package com.example.obito.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.view.menu.MenuBuilder;
@@ -13,6 +14,7 @@ import com.example.obito.R;
 import com.example.obito.fragment.MeFragment;
 import com.example.obito.fragment.NewsFragment;
 import com.example.obito.fragment.OrderFragment;
+import com.example.obito.utils.NetworkManager;
 import com.example.obito.views.BottomBar;
 
 import java.lang.reflect.Method;
@@ -44,6 +46,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        if(!NetworkManager.ping()){
+            Intent intent=new Intent(MainActivity.this,ErrorActivity.class);
+            startActivity(intent);
         }
     }
 

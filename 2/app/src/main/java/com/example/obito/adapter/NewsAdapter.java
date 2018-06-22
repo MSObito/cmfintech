@@ -15,18 +15,23 @@ import com.example.obito.presenter.NewsInterface;
 import com.squareup.picasso.Picasso;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
 
-    private List<News> mNewsList;
-    private Context mContext;
+    private List<News> mNewsList=new ArrayList<>();
+    
+    private List<News> topNewsList=new ArrayList<>();
+    private List<News> unTopNewsList=new ArrayList<>();
+    
+
     private static final int TYPE_ITEM_RIGHT=0;
     private static final int TYPE_ITEM_BOTTOM=1;
 
-    public NewsAdapter(List<News> NewsList,Context context) {
-        mNewsList = NewsList;
-        this.mContext=context;
+    public NewsAdapter(List<News> NewsList) {
+        super();
+        this.mNewsList=NewsList;
     }
 
     @Override
@@ -58,6 +63,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
         holder.newsSourceTextView.setText(news.getSource());
         holder.newsCommentTextView.setText(Integer.toString(news.getComments().get(0).getCount()));
         holder.newsGoodTextView.setText(Integer.toString(news.getComments().get(0).getThumbUp()));
+        if(news.getTop()){
+            holder.newsTopTextView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -76,13 +84,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
         return mNewsList.size();
     }
 
+
+
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView newsTitleTextView;
         TextView newsTimeTextView;
         TextView newsSourceTextView;
         TextView newsCommentTextView;
         TextView newsGoodTextView;
+        TextView newsTopTextView;
         ImageView newsImageView;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -92,6 +104,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
             newsCommentTextView=(TextView)itemView.findViewById(R.id.newsComment_textView);
             newsGoodTextView=(TextView)itemView.findViewById(R.id.newsGood_textView);
             newsImageView=(ImageView)itemView.findViewById(R.id.news_imageView);
+            newsTopTextView=(TextView)itemView.findViewById(R.id.top_textView);
         }
     }
 }

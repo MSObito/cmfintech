@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class JsonUtil {
+public class   JsonUtil {
 
     /**
      * 从Assets中读取JSON文件
@@ -57,6 +57,23 @@ public class JsonUtil {
         JsonArray arry = new JsonParser().parse(jsonData).getAsJsonArray();
         for (JsonElement jsonElement : arry) {
             list.add(gson.fromJson(jsonElement, tClass));
+        }
+        return list;
+    }
+
+    /**
+     * 根据num,解析num+5个Json，返回实体
+     * @param jsonData
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> parseJSONWithGson(String jsonData,Class<T> tClass,int num){
+        List<T> list=new ArrayList<T>();
+        Gson gson=new Gson();
+        //return gson.fromJson(jsonData,new TypeToken<ArrayList<T>>(){}.getType());
+        JsonArray arry = new JsonParser().parse(jsonData).getAsJsonArray();
+        for(int i=num;i<num+5;i++){
+            list.add(gson.fromJson(arry.get(i),tClass));
         }
         return list;
     }

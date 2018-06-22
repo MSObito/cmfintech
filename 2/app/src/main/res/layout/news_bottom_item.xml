@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/top"
+            android:visibility="gone"
             android:layout_marginRight="2dp"
             android:background="@drawable/textview_border"
             android:textColor="@android:color/holo_red_light"/>
