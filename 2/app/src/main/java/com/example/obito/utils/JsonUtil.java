@@ -45,7 +45,7 @@ public class   JsonUtil {
     }
 
     /**
-     * 解析Json，返回实体
+     * 解析Json，返回List实体
      * @param jsonData
      * @param <T>
      * @return
@@ -62,7 +62,20 @@ public class   JsonUtil {
     }
 
     /**
-     * 根据num,解析num+5个Json，返回实体
+     * 解析json，返回实体
+     * @param jsonData
+     * @param tClass
+     * @param <T>
+     * @return
+     */
+    public static <T> T parseJSON(String jsonData,Class<T> tClass){
+        Gson gson=new Gson();
+        T t=gson.fromJson(jsonData,tClass);
+        return t;
+    }
+
+    /**
+     * 根据num,解析num+5个Json，返回List实体
      * @param jsonData
      * @param <T>
      * @return

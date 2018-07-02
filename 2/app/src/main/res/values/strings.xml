@@ -10,4 +10,6 @@
     <string name="hotSearchTopic">热门搜索关键字</string>
     <string name="searchHint">请输入关键字</string>
     <string name="noResult">无相关关键词文章</string>
+    <string name="writeComment">写评论</string>
+    <string name="subscribe">订阅</string>
 </resources>

@@ -12,18 +12,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <!--
         <android.support.v7.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:iconifiedByDefault="false"
             app:queryHint="@string/searchHint"
-            android:layout_weight="1"/>
+            android:layout_weight="1"/>-->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1">
+            <EditText
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/searchHint"
+                android:singleLine="true"
+                android:background="@drawable/search_view"
+                android:padding="5dp"
+                android:textSize="16sp"
+                android:imeOptions="actionSearch"/>
+            <ImageView
+                android:id="@+id/searchView_delete"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/icon_delete"
+                android:layout_gravity="right|center_vertical"/>
+        </FrameLayout>
         <Button
             android:id="@+id/cancelButton"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:text="@string/cancel"
+            android:textSize="16sp"
+            android:layout_marginRight="6dp"
             android:background="@android:color/transparent"/>
     </LinearLayout>
     <FrameLayout
