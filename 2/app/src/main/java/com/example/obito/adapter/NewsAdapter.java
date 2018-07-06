@@ -49,9 +49,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
                 @Override
                 public void onClick(View view) {
                     int position=holder.getAdapterPosition();
-                    News news=mNewsList.get(position);
+                    News news=mNewsList.get(position-1);
                     Intent intent=new Intent(view.getContext(), NewsActivity.class);
                     intent.putExtra(NEWS_ID,news.getId());
+                    intent.putExtra(NEWS_TOP,news.getTop());
                     view.getContext().startActivity(intent);
                 }
             });
@@ -64,7 +65,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder>{
                 @Override
                 public void onClick(View view) {
                     int position=holder.getAdapterPosition();
-                    News news=mNewsList.get(position);
+                    News news=mNewsList.get(position-1);
                     Intent intent=new Intent(view.getContext(), NewsActivity.class);
                     intent.putExtra(NEWS_ID,news.getId());
                     intent.putExtra(NEWS_TOP,news.getTop());

@@ -32,6 +32,7 @@ public class SearchActivity extends BaseActivity {
 
     private String jsonData;
     private static List<News> results=new ArrayList<>();
+    private List<News> newsList;
 
     private Button cancleButton;
     private EditText searchEditText;
@@ -42,7 +43,19 @@ public class SearchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         Intent intent=getIntent();
-        jsonData=intent.getStringExtra(NewsFragment.JsonData);
+        //jsonData=intent.getStringExtra(NewsFragment.JsonData);
+        String whichFragment=intent.getStringExtra(NewsFragment.JsonData);
+        switch (whichFragment){
+            case "NewsFragment":
+                jsonData=intent.getStringExtra(NewsFragment.NEWSDATA);
+                newsList=JsonUtil.parseJSONWithGson(jsonData, News.class);
+                break;
+            case "OrderFragment":
+                newsList=(List<News>)intent.getSerializableExtra(NewsFragment.JsonData);
+                break;
+                default:
+                    break;
+        }
         cancleButton=(Button)findViewById(R.id.cancelButton);
         searchEditText=(EditText)findViewById(R.id.searchView);
         deleteImageView=(ImageView)findViewById(R.id.searchView_delete);
@@ -76,8 +89,6 @@ public class SearchActivity extends BaseActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 CharSequence topic=searchEditText.getText();
-                String jsonData=JsonUtil.getJson("newsList.json",SearchActivity.this);
-                List<News> newsList=JsonUtil.parseJSONWithGson(jsonData, News.class);
                 if(results.size()!=0){
                     results.clear();
                 }
@@ -100,8 +111,8 @@ public class SearchActivity extends BaseActivity {
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_SEARCH) {
                     CharSequence topic=searchEditText.getText();
-                    String jsonData=JsonUtil.getJson("newsList.json",SearchActivity.this);
-                    List<News> newsList=JsonUtil.parseJSONWithGson(jsonData, News.class);
+//                    String jsonData=JsonUtil.getJson("newsList.json",SearchActivity.this);
+//                    List<News> newsList=JsonUtil.parseJSONWithGson(jsonData, News.class);
                     if(results.size()!=0){
                         results.clear();
                     }

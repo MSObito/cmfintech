@@ -51,6 +51,7 @@ public class NewsFragment extends Fragment {
     private NewsAdapter adapter;
 
     public static final String JsonData="JsonData";
+    public static final String NEWSDATA="NewsFragmentData";
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
@@ -73,7 +74,8 @@ public class NewsFragment extends Fragment {
             case R.id.search:
 //                Toast.makeText(getActivity(),"You clicked search in news fragment", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getActivity(),SearchActivity.class);
-                intent.putExtra(JsonData,jsonData);
+                intent.putExtra(JsonData,"NewsFragment");
+                intent.putExtra(NEWSDATA,jsonData);
                 startActivity(intent);
                 break;
             default:
@@ -119,7 +121,6 @@ public class NewsFragment extends Fragment {
             Intent intent=new Intent(getActivity(), ErrorActivity.class);
             startActivity(intent);
         }
-
         adapter=new NewsAdapter(newsList);
         xrecyclerView.setAdapter(adapter);
 
@@ -154,8 +155,13 @@ public class NewsFragment extends Fragment {
      *上拉加载添加数据
      */
     private void addData() {
-        List<News> addNewsList= new ArrayList<>();
-        addNewsList=JsonUtil.parseJSONWithGson(jsonData,News.class,num+5);  //上拉加载添加数据
+        List<News> addNewsList=new ArrayList<>();
+        num+=5;
+        try{
+            addNewsList=JsonUtil.parseJSONWithGson(jsonData,News.class,num);  //上拉加载添加数据
+        }catch (Exception e){
+            Toast.makeText(getContext(),"没有更多的数据",Toast.LENGTH_SHORT).show();
+        }
         for (News news:addNewsList) {
             newsList.add(news);
         }

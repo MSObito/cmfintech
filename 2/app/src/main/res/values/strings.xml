@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">蓝穹</string>
     <string name="news">新闻</string>
+    <string name="order">订阅</string>
+    <string name="my">我的</string>
     <string name="top">置顶</string>
     <string name="refreshing">正在刷新</string>
     <string name="pullRefresh">下拉刷新</string>
@@ -12,4 +14,11 @@
     <string name="noResult">无相关关键词文章</string>
     <string name="writeComment">写评论</string>
     <string name="subscribe">订阅</string>
+    <string name="collectAndHistory">收藏与历史</string>
+    <string name="message">消息与通知</string>
+    <string name="nightMode">夜间模式</string>
+    <string name="about">关于</string>
+    <string name="liked">赞过的</string>
+    <string name="currentVersion">当前版本</string>
+    <string name="aboutApp">关于蓝穹</string>
 </resources>

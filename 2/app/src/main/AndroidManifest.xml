@@ -24,7 +24,9 @@
         <activity
             android:name=".activity.SearchActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activity.NewsActivity"></activity>
+        <activity android:name=".activity.NewsActivity" />
+        <activity android:name=".activity.ImagesActivity" />
+        <activity android:name=".activity.AboutActivity"></activity>
     </application>
 
 </manifest>

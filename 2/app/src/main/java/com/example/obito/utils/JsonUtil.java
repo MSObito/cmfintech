@@ -10,8 +10,10 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,11 +40,15 @@ public class   JsonUtil {
             while ((line = bf.readLine()) != null) {
                 stringBuilder.append(line);
             }
+            assetManager.close();
+            bf.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return stringBuilder.toString();
     }
+
+
 
     /**
      * 解析Json，返回List实体

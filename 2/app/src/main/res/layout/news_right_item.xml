@@ -77,7 +77,6 @@
         </FrameLayout>
         <ImageView
             android:id="@+id/news_imageView"
-            android:src="@mipmap/img_load_fail"
             android:padding="8dp"
             android:layout_width="110dp"
             android:layout_height="match_parent" />
