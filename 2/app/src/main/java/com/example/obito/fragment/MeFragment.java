@@ -1,6 +1,9 @@
 package com.example.obito.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,6 +36,7 @@ public class MeFragment extends Fragment {
         aboutLayout=(FrameLayout)view.findViewById(R.id.aboutLayout);
         likedLayout=(FrameLayout)view.findViewById(R.id.likedLayout);
         versionTextView=(TextView)view.findViewById(R.id.versionTextView);
+        versionTextView.setText(getLocalVersionName(getContext()));
         aboutLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,5 +45,21 @@ public class MeFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    /**
+     * 获取本地软件版本号名称
+     */
+    private static String getLocalVersionName(Context ctx) {
+        String localVersion = "";
+        try {
+            PackageInfo packageInfo = ctx.getApplicationContext()
+                    .getPackageManager()
+                    .getPackageInfo(ctx.getPackageName(), 0);
+            localVersion = packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return localVersion;
     }
 }

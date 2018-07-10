@@ -1,8 +1,9 @@
 package com.example.obito.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class NewsBean {
+public class NewsBean implements Serializable{
     private String id;
 
     private String titile;
@@ -60,7 +61,7 @@ public class NewsBean {
         return this.comments;
     }
 
-    public class Content
+    public class Content implements Serializable
     {
         private String type;
 
@@ -80,7 +81,7 @@ public class NewsBean {
         }
     }
 
-    public class Comments
+    public class Comments implements Serializable
     {
         private String icon;
 

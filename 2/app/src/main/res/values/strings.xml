@@ -21,4 +21,8 @@
     <string name="liked">赞过的</string>
     <string name="currentVersion">当前版本</string>
     <string name="aboutApp">关于蓝穹</string>
+    <string name="backNews">正文</string>
+    <string name="allComments">所有评论</string>
+    <string name="noComments">暂无评论</string>
+    <string name="send">发送</string>
 </resources>

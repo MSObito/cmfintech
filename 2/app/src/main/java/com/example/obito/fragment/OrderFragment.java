@@ -97,6 +97,8 @@ public class OrderFragment extends Fragment {
 
             @Override
             public void onLoadMore() {
+                xrecyclerView.loadMoreComplete();
+                adapter.notifyDataSetChanged();
                 Toast.makeText(getContext(),"已经是全部数据",Toast.LENGTH_SHORT).show();
             }
         });
@@ -150,7 +152,7 @@ public class OrderFragment extends Fragment {
     private void initData() {
         newsList.clear();
         jsonData= JsonUtil.getJson("newsList.json",getContext());
-        List<News> allNews=sortTop(JsonUtil.parseJSONWithGson(jsonData,News.class,num));
+        List<News> allNews=sortTop(JsonUtil.parseJSONWithGson(jsonData,News.class));
         for (News news:allNews) {
             String jsonData=JsonUtil.getJson(news.getId()+".json",getContext());
             NewsBean newsBean=JsonUtil.parseJSON(jsonData, NewsBean.class);

@@ -75,6 +75,7 @@
                                 android:background="@drawable/textview_border"/>
                             <TextView
                                 android:id="@+id/timeTextView"
+                                android:layout_marginLeft="8dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -84,9 +85,10 @@
                     android:id="@+id/subscribeToggleButton"
                     android:layout_gravity="right|center_vertical"
                     android:layout_width="50dp"
-                    android:layout_height="25dp"
+                    android:layout_height="30dp"
                     android:textColor="@color/colorWhite"
-                    android:background="@android:color/darker_gray"
+                    android:background="@color/colorDarkGray"
+                    android:checked="false"
                     android:textOn="@string/subscribe"
                     android:textOff="@string/subscribe" />
             </FrameLayout>
@@ -118,6 +120,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:src="@mipmap/write_comment"/>
                 <TextView
                     android:layout_width="wrap_content"

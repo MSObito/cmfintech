@@ -13,16 +13,17 @@ import android.widget.Toast;
 import com.example.obito.R;
 import com.example.obito.adapter.ImageAdapter;
 import com.example.obito.model.NewsBean;
+import com.example.obito.views.MyViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ImagesActivity extends BaseActivity {
 
-    private List<Bitmap> imageViewList;
+    private ArrayList<String> imageViewList;
     private int position;
 
-    private ViewPager viewPager;
+    private MyViewPager viewPager;
     private ImageAdapter imageAdapter;
     private TextView whichTextView;
     private ImageView saveImageView;
@@ -31,11 +32,11 @@ public class ImagesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images);
-        viewPager=(ViewPager)findViewById(R.id.imagesViewpager);
+        viewPager=(MyViewPager) findViewById(R.id.imagesViewpager);
         whichTextView=(TextView) findViewById(R.id.whichTextView);
         saveImageView=(ImageView)findViewById(R.id.saveImageView);
         Intent intent=getIntent();
-        imageViewList=(List<Bitmap>)intent.getSerializableExtra(NewsActivity.IMAGES_LIST);
+        imageViewList=intent.getStringArrayListExtra(NewsActivity.IMAGES_LIST);
         position=intent.getIntExtra(NewsActivity.POSITION,0);
         imageAdapter=new ImageAdapter(this,imageViewList);
         viewPager.setAdapter(imageAdapter);

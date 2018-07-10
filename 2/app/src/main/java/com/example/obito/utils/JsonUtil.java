@@ -40,8 +40,6 @@ public class   JsonUtil {
             while ((line = bf.readLine()) != null) {
                 stringBuilder.append(line);
             }
-            assetManager.close();
-            bf.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.obito.R;
+import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import uk.co.senab.photoview.PhotoView;
@@ -19,17 +21,15 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 public class ImageAdapter extends PagerAdapter {
 
     private Context context;
-    private List<Bitmap> imagesList;
+    private ArrayList<String> imagesList;
     private SparseArray<View> cacheView;
     private ViewGroup containerTemp;
 
-    public ImageAdapter(Context context,List<Bitmap> imagesList) {
+    public ImageAdapter(Context context, ArrayList<String> imagesList) {
         this.imagesList = imagesList;
         this.context=context;
         cacheView=new SparseArray<>(imagesList.size());
     }
-
-
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
@@ -39,9 +39,11 @@ public class ImageAdapter extends PagerAdapter {
         if(view==null){
             view= LayoutInflater.from(context).inflate(R.layout.image_item,container,false);
             view.setTag(position);
-            final PhotoView photoView=(PhotoView)view.findViewById(R.id.photoView);
-            final PhotoViewAttacher photoViewAttacher=new PhotoViewAttacher(photoView);
-            photoView.setImageBitmap(imagesList.get(position));
+            PhotoView photoView=(PhotoView)view.findViewById(R.id.photoView);
+            PhotoViewAttacher photoViewAttacher=new PhotoViewAttacher(photoView);
+            Picasso.get()
+                    .load(imagesList.get(position))
+                    .into(photoView);
             photoViewAttacher.setOnPhotoTapListener(new PhotoViewAttacher.OnPhotoTapListener() {
                 @Override
                 public void onPhotoTap(View view, float x, float y) {

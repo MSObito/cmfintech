@@ -3,6 +3,9 @@ package com.example.obito.activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,8 +27,10 @@ import com.example.obito.R;
 import com.example.obito.adapter.NewsAdapter;
 import com.example.obito.model.NewsBean;
 import com.example.obito.utils.JsonUtil;
+import com.example.obito.utils.Share;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -53,9 +58,12 @@ public class NewsActivity extends BaseActivity {
     boolean isTop;
     private NewsBean newsBean;
     private List<Bitmap> imageViewList=new ArrayList<>();
+    private ArrayList<String> imageUriList=new ArrayList<>();
 
-    public static final String IMAGES_LIST="images_list";
+    public static final String IMAGES_LIST="image_list";
     public static final String POSITION="image_position";
+    public static final String NEWSBEAN="newsbean";
+    public static final String ISTOP="istop";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +82,7 @@ public class NewsActivity extends BaseActivity {
         shareImageView=(ImageView)findViewById(R.id.shareImageView);
         contentLayout=(LinearLayout)findViewById(R.id.contentLayout);
         subscribeToggleButton=(ToggleButton)findViewById(R.id.subscribeToggleButton);
+        subscribeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorDarkGray));
         commentFrameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,29 +92,42 @@ public class NewsActivity extends BaseActivity {
         commentsFrameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(view.getContext(),CommentActivity.class);
+                intent.putExtra(NEWSBEAN,newsBean);
+                intent.putExtra(ISTOP,isTop);
+                startActivity(intent);
             }
         });
         collectImageView.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-                collectImageView.setImageResource(R.mipmap.icon_collect2);
+                Drawable.ConstantState collect=  collectImageView.getDrawable().getCurrent().getConstantState();
+                Drawable.ConstantState collect1=getDrawable(R.mipmap.icon_collect).getConstantState();
+                if(collect.equals(collect1))
+                {
+                    collectImageView.setImageResource(R.mipmap.icon_collect2);
+                }
+                else{
+                    collectImageView.setImageResource(R.mipmap.icon_collect);
+                }
             }
         });
         shareImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Share share=new Share();
+                share.shareText(view.getContext(),newsBean.getTitile());
             }
         });
         subscribeToggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                subscribeToggleButton.setChecked(!subscribeToggleButton.isChecked());
+                //subscribeToggleButton.setChecked(!subscribeToggleButton.isChecked());
                 if(subscribeToggleButton.isChecked()){
-                    subscribeToggleButton.setBackgroundColor(Color.BLUE);
+                    subscribeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorBlue));
                 }else{
-                    subscribeToggleButton.setBackgroundColor(Color.DKGRAY);
+                    subscribeToggleButton.setBackgroundColor(getResources().getColor(R.color.colorDarkGray));
                 }
             }
         });
@@ -175,28 +197,42 @@ public class NewsActivity extends BaseActivity {
         imageView.setAdjustViewBounds(true);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setPadding(8,20,8,20);
+        Target target=new Target() {
+
+            @Override
+            public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
+                imageViewList.add(bitmap);
+                imageView.setImageBitmap(bitmap);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+//              Toast.makeText(view.getContext(),source,Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(view.getContext(),ImagesActivity.class);
+//                        intent.putExtra(IMAGES_LIST,(Serializable)imageViewList);
+                        intent.putStringArrayListExtra(IMAGES_LIST,imageUriList);
+                        int position=imageViewList.indexOf(bitmap);
+                        intent.putExtra(POSITION,position);
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+            }
+        };
         Picasso.get()
                 .load(source)
                 .placeholder(R.mipmap.img_load_fail)
                 .error(R.mipmap.img_load_fail2)
-                .into(imageView);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Toast.makeText(view.getContext(),source,Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(view.getContext(),ImagesActivity.class);
-                intent.putExtra(IMAGES_LIST,(Serializable)imageViewList);
-                imageView.setDrawingCacheEnabled(true);
-                int position=imageViewList.indexOf(imageView.getDrawingCache());
-                imageView.setDrawingCacheEnabled(false);
-                intent.putExtra(POSITION,position);
-                startActivity(intent);
-            }
-        });
-        imageView.setDrawingCacheEnabled(true);
-        Bitmap bitmap=imageView.getDrawingCache();
-        imageView.setDrawingCacheEnabled(false);
-        imageViewList.add(bitmap);
+                .into(target);
+        imageUriList.add(source);
         return imageView;
     }
 
@@ -216,4 +252,6 @@ public class NewsActivity extends BaseActivity {
         super.onDestroy();
         ActivityManager.removeActivity(this);
     }
+
+
 }
