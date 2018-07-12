@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hotSearchTopic"
         android:textStyle="bold"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="16dp"/>
     <android.support.v7.widget.RecyclerView

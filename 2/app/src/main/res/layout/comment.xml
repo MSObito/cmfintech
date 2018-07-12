@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/colorWhite"
+        android:background="@color/colorCommentBackground"
         android:layout_gravity="bottom">
         <EditText
             android:id="@+id/makeCommentEditText"
@@ -19,8 +19,11 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:padding="8dp"
-            android:background="@drawable/search_view"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:background="@drawable/comment_view"
             android:hint="@string/writeComment"/>
         <Button
             android:id="@+id/sendButton"
@@ -30,7 +33,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="12dp"
-            android:background="@drawable/button_corner"
+            android:background="@drawable/button_corner2"
+            android:textColor="@color/colorGray"
             android:text="@string/send"/>
     </LinearLayout>
 </FrameLayout>

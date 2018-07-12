@@ -33,7 +33,7 @@ public class CommentFragment extends Fragment {
         commentRecyclerView=(RecyclerView)view.findViewById(R.id.commentRecyclerView);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         commentRecyclerView.setLayoutManager(layoutManager);
-        commentAdapter=new CommentAdapter(newsBean.getComments());
+        commentAdapter=new CommentAdapter(newsBean.getComments(),getActivity());
         commentRecyclerView.setAdapter(commentAdapter);
         return view;
     }

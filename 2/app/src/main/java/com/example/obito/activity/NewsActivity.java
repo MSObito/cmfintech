@@ -25,8 +25,11 @@ import android.widget.ToggleButton;
 
 import com.example.obito.R;
 import com.example.obito.adapter.NewsAdapter;
+import com.example.obito.fragment.NewsFragment;
+import com.example.obito.model.News;
 import com.example.obito.model.NewsBean;
 import com.example.obito.utils.JsonUtil;
+import com.example.obito.utils.SdCardManager;
 import com.example.obito.utils.Share;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
@@ -34,8 +37,10 @@ import com.squareup.picasso.Target;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class NewsActivity extends BaseActivity {
@@ -55,6 +60,7 @@ public class NewsActivity extends BaseActivity {
     private Toolbar toolbar;
 
     String fileName;
+    private News news;
     boolean isTop;
     private NewsBean newsBean;
     private List<Bitmap> imageViewList=new ArrayList<>();
@@ -107,9 +113,11 @@ public class NewsActivity extends BaseActivity {
                 if(collect.equals(collect1))
                 {
                     collectImageView.setImageResource(R.mipmap.icon_collect2);
+                    SdCardManager.saveFile(view.getContext(),"collect",news.getId(),news);
                 }
                 else{
                     collectImageView.setImageResource(R.mipmap.icon_collect);
+                    SdCardManager.deleteFile(view.getContext(),"collect",news.getId());
                 }
             }
         });
@@ -139,6 +147,7 @@ public class NewsActivity extends BaseActivity {
         }
         Intent intent=getIntent();
         fileName=intent.getStringExtra(NewsAdapter.NEWS_ID)+".json";
+        news=(News)intent.getSerializableExtra(NewsAdapter.NEWS_ENTITY);
         isTop=intent.getBooleanExtra(NewsAdapter.NEWS_TOP,false);
         if(isTop){
             topTextView.setVisibility(View.VISIBLE);
@@ -174,7 +183,7 @@ public class NewsActivity extends BaseActivity {
         TextView textView=new TextView(this);
         textView.setText(text);
         textView.setTextSize(17);
-        textView.setTextColor(Color.BLACK);
+        textView.setTextColor(getResources().getColor(R.color.colorHeader));
         TextPaint textPaint=textView.getPaint();
         textPaint.setFakeBoldText(true);
         textView.setLineSpacing(0,1.3f);
@@ -185,7 +194,7 @@ public class NewsActivity extends BaseActivity {
         TextView textView=new TextView(this);
         textView.setText(text);
         textView.setTextSize(17);
-        textView.setTextColor(Color.BLACK);
+        textView.setTextColor(getResources().getColor(R.color.colorHeader));
         textView.setLineSpacing(0,1.3f);
         return textView;
     }

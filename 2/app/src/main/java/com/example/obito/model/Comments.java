@@ -1,6 +1,8 @@
 package com.example.obito.model;
 
-public class Comments {
+import java.io.Serializable;
+
+public class Comments implements Serializable {
 
     private int thumbUp;
     private int count;

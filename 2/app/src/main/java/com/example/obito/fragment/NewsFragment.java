@@ -72,7 +72,6 @@ public class NewsFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.search:
-//                Toast.makeText(getActivity(),"You clicked search in news fragment", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getActivity(),SearchActivity.class);
                 intent.putExtra(JsonData,"NewsFragment");
                 intent.putExtra(NEWSDATA,jsonData);
@@ -90,9 +89,6 @@ public class NewsFragment extends Fragment {
         if (getChildFragmentManager().getBackStackEntryCount() == 0) {
             inflater.inflate(R.menu.search, menu);
         }
-
-//        getMenuInflater().inflate(R.menu.search,menu);
-//        return true;
     }
 
     @Nullable
@@ -103,7 +99,8 @@ public class NewsFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ActionBar actionBar=((AppCompatActivity) getActivity()).getSupportActionBar();
         if(actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(false);
         }
         setHasOptionsMenu(true);
         xrecyclerView=(XRecyclerView) view.findViewById(R.id.news_xRecyclerView);

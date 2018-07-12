@@ -3,69 +3,92 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/newsTitle_textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textSize="20sp"
-        android:maxLines="2"
-        android:ellipsize="end"
-        android:textColor="@color/colorBlack"/>
-    <ImageView
-        android:id="@+id/news_imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-        <TextView
-            android:id="@+id/top_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/top"
-            android:visibility="gone"
-            android:layout_marginRight="2dp"
-            android:background="@drawable/textview_border"
-            android:textColor="@android:color/holo_red_light"/>
-        <TextView
-            android:id="@+id/newsTime_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"/>
-        <TextView
-            android:id="@+id/newsSource_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"/>
-        <ImageView
+        android:orientation="horizontal">
+        <CheckBox
+            android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@mipmap/icon_comment"/>
-        <TextView
-            android:id="@+id/newsComment_textView"
-            android:layout_width="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="5dp"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@mipmap/icon_good"/>
-        <TextView
-            android:id="@+id/newsGood_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"/>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/newsTitle_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="20sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/colorPrimaryDark"/>
+            <ImageView
+                android:id="@+id/news_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp">
+                <TextView
+                    android:id="@+id/top_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/top"
+                    android:visibility="gone"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/textview_border"
+                    android:textColor="@color/colorTop"/>
+                <TextView
+                    android:id="@+id/newsTime_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginRight="5dp"/>
+                <TextView
+                    android:id="@+id/newsSource_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginRight="5dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/icon_comment"/>
+                <TextView
+                    android:id="@+id/newsComment_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="5dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/icon_good"/>
+                <TextView
+                    android:id="@+id/newsGood_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginLeft="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/colorGray"/>
+        android:background="@color/colorView"/>
 </LinearLayout>

@@ -133,6 +133,16 @@ public class BottomBar extends View{
 
     }
 
+    public BottomBar setTitleBeforeAndAfterColor(int beforeResCode, int AfterResCode) {//支持"#333333"这种形式
+
+        titleColorBefore = beforeResCode;
+
+        titleColorAfter = AfterResCode;
+
+        return this;
+
+    }
+
 
 
     public BottomBar setTitleSize(int titleSizeInDp) {

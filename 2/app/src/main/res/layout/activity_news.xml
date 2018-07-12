@@ -19,7 +19,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorGray"/>
+        android:background="@color/colorView"/>
     <ScrollView
         android:id="@+id/newsScrollView"
         android:padding="8dp"
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textColor="@color/colorBlack"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"/>
             <FrameLayout
                 android:layout_width="match_parent"
@@ -60,7 +60,8 @@
                         <TextView
                             android:id="@+id/fromTextView"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorHeader"/>
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -71,11 +72,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/top"
-                                android:textColor="@android:color/holo_red_light"
+                                android:textColor="@color/colorTop"
                                 android:background="@drawable/textview_border"/>
                             <TextView
                                 android:id="@+id/timeTextView"
                                 android:layout_marginLeft="8dp"
+                                android:textColor="@color/colorTimeHeader"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -86,7 +88,7 @@
                     android:layout_gravity="right|center_vertical"
                     android:layout_width="50dp"
                     android:layout_height="30dp"
-                    android:textColor="@color/colorWhite"
+                    android:textColor="@color/colorSubscribe"
                     android:background="@color/colorDarkGray"
                     android:checked="false"
                     android:textOn="@string/subscribe"
@@ -97,7 +99,8 @@
     <FrameLayout
         android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
         <FrameLayout
             android:id="@+id/commentLayout"
             android:layout_width="wrap_content"
@@ -125,7 +128,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorGray"
+                    android:layout_marginLeft="4dp"
                     android:text="@string/writeComment"/>
             </LinearLayout>
         </FrameLayout>

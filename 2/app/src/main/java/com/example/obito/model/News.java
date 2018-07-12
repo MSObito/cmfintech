@@ -1,8 +1,9 @@
 package com.example.obito.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class News {
+public class News implements Serializable{
     private String id;
 
     private String titile;

@@ -19,7 +19,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorGray"/>
+        android:background="@color/colorView"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,17 +43,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/top"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@color/colorTop"
                 android:background="@drawable/textview_border"
                 android:layout_marginRight="8dp"/>
             <TextView
                 android:id="@+id/timeTextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTimeHeader"/>
             <TextView
                 android:id="@+id/fromTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorHeader"
                 android:layout_marginLeft="8dp"/>
         </LinearLayout>
         <TextView
@@ -61,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/allComments"/>
         <FrameLayout
             android:id="@+id/replaceFrameLayout"

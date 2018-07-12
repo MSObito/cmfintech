@@ -25,4 +25,11 @@
     <string name="allComments">所有评论</string>
     <string name="noComments">暂无评论</string>
     <string name="send">发送</string>
+    <string name="messageNotify">消息通知</string>
+    <string name="likedComment">赞过的评论</string>
+    <string name="showAllComments">已显示全部内容</string>
+    <string name="edit">编辑</string>
+    <string name="chooseAll">全选</string>
+    <string name="delete">删除</string>
+    <string name="no">没有内容</string>
 </resources>

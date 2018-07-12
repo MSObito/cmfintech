@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1c1e21</color>
+    <color name="colorPrimaryDark">#a2a4a6</color>
+    <color name="colorAccent">#4fd262</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorMain">#999999</color>
+    <color name="colorBlack">#1c1e21</color>
+    <color name="colorGray">#a5a5a5</color>
+    <color name="colorBlue">#008cff</color>
+    <color name="colorDarkGray">#999999</color>
+    <color name="colorBackground">#8f000000</color>
+    <color name="colorView">#2a2a30</color>
+    <color name="colorHeader">#6f7379</color>
+    <color name="colorTimeHeader">#6f7379</color>
+    <color name="colorTop">#0088ff</color>
+    <color name="colorSubscribe">#6f7379</color>
+    <color name="colorGrayBackground">#2a2a30</color>
+    <color name="colorCommentBackground">#2a2a30</color>
+    <color name="colorCommentDrawable">#39393e</color>
+    <color name="colorItem">#a2a4a6</color>
+    <color name="colorNoChoose">#3e3f43</color>
+    <color name="colorChoose">#80858b</color>
+</resources>
